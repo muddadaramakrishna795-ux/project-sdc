@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio + Task Manager</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      background:#f2f2f2;
+      margin:0;
+      padding:0;
+    }
+
+    header{
+      background:blue;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    section{
+      background:white;
+      margin:20px;
+      padding:20px;
+      border-radius:10px;
+    }
+
+    h2{
+      color:blue;
+    }
+
+    .project{
+      background:#e8e8e8;
+      padding:10px;
+      margin-top:10px;
+      border-radius:5px;
+    }
+
+    footer{
+      text-align:center;
+      background:black;
+      color:white;
+      padding:10px;
+    }
+
+    input{
+      padding:10px;
+      width:70%;
+    }
+
+    button{
+      padding:10px;
+      background:blue;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    li{
+      margin-top:10px;
+      background:#ddd;
+      padding:10px;
+      border-radius:5px;
+      list-style:none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Harun Rashid</h1>
+  <p>Java Full Stack Developer</p>
+</header>
+
+<section>
+  <h2>About Me</h2>
+  <p>
+    I am a student learning Java Full Stack Development.
+    I am interested in web development and backend technologies.
+  </p>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Java</li>
+    <li>SQL</li>
+    <li>JavaScript</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Portfolio Website</h3>
+    <p>Created a personal portfolio website using HTML and CSS.</p>
+  </div>
+
+  <div class="project">
+    <h3>Student Database</h3>
+    <p>Created student records using MySQL database.</p>
+  </div>
+</section>
+
+<!-- TASK MANAGER SECTION -->
+
+<section>
+  <h2>Task Manager</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email: harun@example.com</p>
+  <p>Phone: 9876543210</p>
+</section>
+
+<footer>
+  <p>© 2026 Harun Rashid</p>
+</footer>
+
+<script>
+
+function addTask(){
+
+  let taskInput = document.getElementById("taskInput");
+
+  let taskText = taskInput.value;
+
+  if(taskText == ""){
+    alert("Please enter a task");
+    return;
+  }
+
+  let li = document.createElement("li");
+
+  li.innerHTML = taskText +
+  " <button onclick='removeTask(this)'>Delete</button>";
+
+  document.getElementById("taskList").appendChild(li);
+
+  taskInput.value = "";
+}
+
+function removeTask(button){
+  button.parentElement.remove();
+}
+
+</script>
+
+</body>
+</html>
